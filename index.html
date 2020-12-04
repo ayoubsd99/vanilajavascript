@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+        img{
+            height: 30px;
+            
+        }
+    </style>
+</head>
+<body> 
+  <div class="continer">
+    <button id="add_product">Add New Product+</button>
+  </div>
+     <table class="table">
+
+                <thead class="thead-dark">
+                  <tr>
+                      <th>Id</th>
+                      <th>Title</th>
+                    <th>description</th>
+                    <th>category</th>
+        
+                    <th>image</th>
+        
+                    <th>delete</th>
+        
+                    <th>update</th>
+        
+                    <th>show</th>
+        
+        </tr>
+                </thead>
+              
+                         
+                <tbody id="products-table">
+        
+                </tbody>
+                </table>
+    </table>
+   
+
+        <!-- Modal update -->
+        <div id='modal_update' class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Update product</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="txt_upid">ID Product</label>
+                    <input type="text" class="form-control" id="txt_upid" disabled="disabled" placeholder="product id">
+                         </div>
+                         <div class="form-group">
+                          <label for="up_title">title</label>
+                          <input type="text" class="form-control" id="up_title"  placeholder="product title">
+                               </div>
+                  <div class="form-group">
+                    <label for="up_category">category</label>
+                    <input type="text" class="form-control" id="up_category" placeholder="product category">
+                  </div>
+                  <div class="form-group">
+                    <label for="up_description">Description</label>
+                    <input type="text"  class="form-control" id="up_description" placeholder="product description">
+                  </div>
+                  <div class="form-group">
+                    <label for="up_img">image</label><br>
+                    <img id="up_img" id="up_img" alt="image product not uploded">
+                  </div>
+                  <div class="form-group">
+                    <label for="up_image">update Image</label>
+                    <input type="file" class="form-control" id="up_image" >
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="save_update" class="btn btn-primary">Update</button>
+                  <button type="button" id="btn_close_update_modal" class="btn btn-secondary" >Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- Modal show -->
+        <div id='modal_show' class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Update product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <p>Id :<label id="show_id"></label></p>
+               <p>Citle : <label id="show_title"></label></p>
+               <p>Category : <label id="show_category"></label></p>
+               <p>Description : <label id="show_description"></label></p>
+               <p>Image :<img src="" id="show_image" alt="show image not uploaded"></p>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="hide_modal_show">Hide</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Modal adding -->
+          <div id='modal_adding' class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Update product</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="txt_newid">ID Product</label>
+                    <input type="text" class="form-control" id="txt_newid" disabled="disabled" placeholder="product id">
+                         </div>
+                         <div class="form-group">
+                          <label for="new_title">title</label>
+                          <input type="text" class="form-control" id="new_title" placeholder="product title">
+                               </div>
+                  <div class="form-group">
+                    <label for="new_category">category</label>
+                    <input type="text" class="form-control" id="new_category" placeholder="product category">
+                  </div>
+                  <div class="form-group">
+                    <label for="new_description">Description</label>
+                    <input type="text"  class="form-control" id="new_description" placeholder="product description">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="new_image">update Image</label>
+                    <input type="file" class="form-control" id="new_image" >
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="save_newrow" class="btn btn-primary">add data</button>
+                  <button type="button" class="btn btn-secondary" id="btn_close_adding_modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
